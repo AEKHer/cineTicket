@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/secilenFilm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Koltuk Seçimi"
+        android:textSize="24sp"
+        android:padding="8dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="323dp"
+        android:layout_height="26dp"
+        android:clickable="false"
+        android:insetTop="-2dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="Sahne"
+        android:textAlignment="center"
+        android:textColorLink="#494747"
+        app:iconPadding="0dp"
+        app:rippleColor="#906B6B" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/koltukRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/toplamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seçilen Koltuk: 0 | Toplam: 0₺"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/onayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siparişi Onayla"
+        android:layout_marginTop="10dp" />
+
+
+</LinearLayout>
