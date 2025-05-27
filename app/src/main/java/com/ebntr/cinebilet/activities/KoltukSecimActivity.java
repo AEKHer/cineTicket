@@ -37,7 +37,7 @@ public class KoltukSecimActivity extends AppCompatActivity {
         toplamText = findViewById(R.id.toplamText);
         onayButton = findViewById(R.id.onayButton);
 
-        koltukRecyclerView.setLayoutManager(new GridLayoutManager(this, 6));
+        koltukRecyclerView.setLayoutManager(new GridLayoutManager(this, 6));//6 sütun
         koltukList = koltukYukle(filmAdi);
         adapter = new KoltukAdapter(this, koltukList, () -> updateTotal());
         koltukRecyclerView.setAdapter(adapter);
@@ -70,6 +70,7 @@ public class KoltukSecimActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("KoltukVerileri", MODE_PRIVATE);
         String key = "koltuklar_" + filmAdi;
         String saved = prefs.getString(key, null);
+
         List<Koltuk> list = new ArrayList<>();
 
         if (saved != null) {

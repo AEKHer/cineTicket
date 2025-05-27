@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager; //liste tipi görünüm için importlar
 import androidx.recyclerview.widget.RecyclerView;
-import com.ebntr.cinebilet.R; //projedeki diğer classları projeye dahil etme
+import com.ebntr.cinebilet.R; //projedeki diğer classları projeye dahil et
 import com.ebntr.cinebilet.adapters.FilmAdapter;
 import com.ebntr.cinebilet.models.Film;
 import java.util.Arrays;
@@ -32,3 +32,4 @@ public class MainActivity extends AppCompatActivity {
         filmRecyclerView.setAdapter(adapter);
     }
 }
+

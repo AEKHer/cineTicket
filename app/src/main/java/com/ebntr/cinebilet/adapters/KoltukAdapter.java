@@ -13,17 +13,12 @@ public class KoltukAdapter extends RecyclerView.Adapter<KoltukAdapter.KoltukView
     private Context aciklama;
     private List<Koltuk> koltukList;
 
-
-    public KoltukAdapter(Context aciklama, List<Koltuk> koltukList) {
-        this.aciklama = aciklama;
-        this.koltukList = koltukList;
-    }
+    private KoltukSecimi listener; //Koltuk seçimi değiştiğinde bildirimi yapacak olan listener
 
     public interface KoltukSecimi {
         void onSeatSelectionChanged(); // koltuksecimi değiştiğinde dışarıya bilgi sağlar
     }
 
-    private KoltukSecimi listener; //Koltuk seçimi değiştiğinde bildirimi yapacak olan listener
 
     public KoltukAdapter(Context aciklama, List<Koltuk> koltukList, KoltukSecimi listener) {
         this.aciklama = aciklama;
@@ -63,7 +58,7 @@ public class KoltukAdapter extends RecyclerView.Adapter<KoltukAdapter.KoltukView
         return koltukList.size();
     }
 
-    public static class KoltukViewHolder extends RecyclerView.ViewHolder {
+    public static class KoltukViewHolder extends RecyclerView.ViewHolder { //türetilmiş class oluşturuluyor
         View koltukGorunumu;
 
         public KoltukViewHolder(View itemView) {
