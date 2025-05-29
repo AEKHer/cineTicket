@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/filmText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Film: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/koltukText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Koltuklar: "
+        android:textSize="16sp"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/toplamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toplam Tutar: "
+        android:textSize="16sp"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/odemeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ödeme Yap" />
+</LinearLayout>

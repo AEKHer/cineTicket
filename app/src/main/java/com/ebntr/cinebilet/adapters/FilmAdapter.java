@@ -9,48 +9,52 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.ebntr.cinebilet.R;
+import com.ebntr.cinebilet.activities.SeansActivity;
 import com.ebntr.cinebilet.models.Film;
 import com.ebntr.cinebilet.activities.KoltukSecimActivity;
 import java.util.List;
-
 public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder> {
-    private Context aciklama;
+    private Context context;
     private List<Film> filmList;
 
-    public FilmAdapter(Context aciklama, List<Film> filmList) {
-        this.aciklama = aciklama;
+    public FilmAdapter(Context context, List<Film> filmList) {
+        this.context = context;
         this.filmList = filmList;
     }
 
+    @Override
     public FilmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(aciklama).inflate(R.layout.film_item, parent, false); //film_item görünüm dosyasını eşler
+        View view = LayoutInflater.from(context).inflate(R.layout.film_item, parent, false);
         return new FilmViewHolder(view);
     }
 
+    @Override
     public void onBindViewHolder(FilmViewHolder holder, int position) {
         Film film = filmList.get(position);
-        holder.baslik.setText(film.getBaslik());
-        holder.resim.setImageResource(film.getResimId());
+        holder.textBaslik.setText(film.getBaslik());
+        holder.imagePoster.setImageResource(film.getResimId());
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(aciklama, KoltukSecimActivity.class); //diğer classa geçilir
-            intent.putExtra("filmAdi", film.getBaslik());//geçerken filmin adı da gönderilir
-            aciklama.startActivity(intent);
+            Intent intent = new Intent(context, SeansActivity.class);
+            intent.putExtra("filmBaslik", film.getBaslik());
+            intent.putExtra("filmResimId", film.getResimId());
+            context.startActivity(intent);
         });
     }
 
+    @Override
     public int getItemCount() {
         return filmList.size();
     }
 
     public static class FilmViewHolder extends RecyclerView.ViewHolder {
-        ImageView resim;
-        TextView baslik;
+        TextView textBaslik;
+        ImageView imagePoster;
 
         public FilmViewHolder(View itemView) {
-            super(itemView); //itemViewden görünen itemleri miras alır
-            resim = itemView.findViewById(R.id.filmImage);
-            baslik = itemView.findViewById(R.id.filmTitle);
+            super(itemView);
+            textBaslik = itemView.findViewById(R.id.filmTitle);
+            imagePoster = itemView.findViewById(R.id.filmImage);
         }
     }
 }

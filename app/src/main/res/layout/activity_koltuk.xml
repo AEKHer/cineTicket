@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
@@ -20,20 +19,53 @@
         android:layout_width="323dp"
         android:layout_height="26dp"
         android:clickable="false"
-        android:insetTop="-2dp"
+        android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
+        android:padding="0dp"
         android:text="Sahne"
         android:textAlignment="center"
-        android:textColorLink="#494747"
-        app:iconPadding="0dp"
-        app:rippleColor="#906B6B" />
+        android:backgroundTint="#000000"
+        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/koltukRecyclerView"
+    <!-- Bu üstteki harfler (A, B, C...) -->
+    <LinearLayout
+        android:id="@+id/harfSutunu"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp">
+
+        <!-- İlk boşluk, sol sayılar için -->
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- Bu sol taraftaki sayılar (1, 2, 3...) -->
+        <LinearLayout
+            android:id="@+id/sayiSatiri"
+            android:orientation="vertical"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            />
+
+        <!-- Koltuklar -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/koltukRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/toplamText"
@@ -49,6 +81,5 @@
         android:layout_height="wrap_content"
         android:text="Siparişi Onayla"
         android:layout_marginTop="10dp" />
-
 
 </LinearLayout>
