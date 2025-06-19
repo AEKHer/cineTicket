@@ -1,7 +1,5 @@
 package com.ebntr.cinebilet.models;
 
-//tüm koltukların depişkenleri ve durum bilgisi burada tutulur
-
 public class Koltuk {
     private boolean rezerveMi;
     private boolean seciliMi;

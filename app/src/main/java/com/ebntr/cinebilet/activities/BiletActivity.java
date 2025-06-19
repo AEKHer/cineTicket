@@ -1,6 +1,8 @@
 package com.ebntr.cinebilet.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,5 +25,14 @@ public class BiletActivity extends AppCompatActivity {
 
         filmBilet.setText("Film: " + filmAdi);
         koltuklarText.setText("Koltuklar: " + String.join(", ", koltuklar));
+
+        Button mainButton = findViewById(R.id.mainButton);
+        mainButton.setOnClickListener(v -> {
+            Intent intent = new Intent(BiletActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+
     }
 }

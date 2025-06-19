@@ -29,13 +29,13 @@ public class KoltukSecimActivity extends AppCompatActivity {
     private String filmAdi;
     private TextView toplamText;
     private Button onayButton;
-    private static int biletFiyat = 30; //sadece bu sınıfta kullanılacak o yüzden static
+    private static int biletFiyat = 150; //sadece bu sınıfta kullanılacak o yüzden static
 
     // Yeni eklenen:
     private LinearLayout satirBasliklari; // soldaki sayılar
     private LinearLayout sutunBasliklari; // üstteki harfler
 
-    // Sabitler, kaç satır ve sütun var
+
     private static final int SATIR_SAYISI = 5; // 1..5
     private static final int SUTUN_SAYISI = 6; // A..F
 
@@ -53,12 +53,12 @@ public class KoltukSecimActivity extends AppCompatActivity {
         toplamText = findViewById(R.id.toplamText);
         onayButton = findViewById(R.id.onayButton);
 
-        // Doğru eşleştirmeler
+
         sutunBasliklari = findViewById(R.id.harfSutunu); // üstteki harfler
         satirBasliklari = findViewById(R.id.sayiSatiri); // soldaki sayılar
 
 
-        // Harfleri (A-F) ve satır numaralarını (1-5) ekle
+
         harfleriEkle();
         sayilariEkle();
 
@@ -77,7 +77,6 @@ public class KoltukSecimActivity extends AppCompatActivity {
                     koltuk.rezerveEt(true);
                     koltuk.seciliYap(false);
 
-                    // Koltuk numarasını hesapla: 0 → 1A, 1 → 1B, ..., 6 → 2A, ...
                     int satir = (i / SUTUN_SAYISI) + 1;
                     char sutun = (char) ('A' + (i % SUTUN_SAYISI));
                     String koltukNo = satir + String.valueOf(sutun);
@@ -91,7 +90,6 @@ public class KoltukSecimActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
             updateTotal();
 
-            // Intent ile ödeme ekranına geç
             Intent intent = new Intent(KoltukSecimActivity.this, OdemeActivity.class);
             intent.putExtra("filmAdi", filmAdi);
             intent.putExtra("toplam", toplam);
@@ -102,7 +100,6 @@ public class KoltukSecimActivity extends AppCompatActivity {
     }
 
     private void harfleriEkle() {
-        // sutunBasliklari içinde zaten başta 1 boşluk var, şimdi A-F harflerini ekle
         for (int i = 0; i < SUTUN_SAYISI; i++) {
             TextView tv = new TextView(this);
             tv.setText(String.valueOf((char) ('A' + i)));
@@ -132,7 +129,7 @@ public class KoltukSecimActivity extends AppCompatActivity {
     }
 
 
-    // dp -> px dönüşüm metodu
+
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round(dp * density);

@@ -1,38 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="24dp">
 
     <TextView
         android:id="@+id/filmText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Film: "
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/lobster_two"
+        android:text="Bilet: "
+        android:textColor="@color/headerColor"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Kart Sahibinin Adı -->
 
     <TextView
         android:id="@+id/koltukText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Koltuklar: "
-        android:textSize="16sp"
-        android:layout_marginTop="12dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filmText" />
 
     <TextView
         android:id="@+id/toplamText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Toplam Tutar: "
-        android:textSize="16sp"
-        android:layout_marginTop="12dp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sonKullanmaTarihi" />
+
+    <EditText
+        android:id="@+id/kartSahibiAdi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Kart Sahibinin Adı"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/koltukText" />
+
+    <!-- Kart Numarası -->
+    <EditText
+        android:id="@+id/kartNumarasi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Kart Numarası"
+        android:inputType="number"
+        android:maxLength="16"
+        app:layout_constraintTop_toBottomOf="@id/kartSahibiAdi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Son Kullanma Tarihi -->
+    <EditText
+        android:id="@+id/sonKullanmaTarihi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="(AA/YY)"
+        android:inputType="text"
+        android:maxLength="5"
+        app:layout_constraintTop_toBottomOf="@id/kartNumarasi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cvv"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- CVV -->
+    <EditText
+        android:id="@+id/cvv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="CVV"
+        android:inputType="numberPassword"
+        android:maxLength="3"
+        app:layout_constraintTop_toBottomOf="@id/kartNumarasi"
+        app:layout_constraintStart_toEndOf="@id/sonKullanmaTarihi"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
 
     <Button
         android:id="@+id/odemeButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Ödeme Yap" />
-</LinearLayout>
+        android:layout_marginTop="76dp"
+        android:backgroundTint="@color/headerColor"
+        android:text="Ödeme Yap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sonKullanmaTarihi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

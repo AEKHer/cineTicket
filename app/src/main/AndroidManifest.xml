@@ -26,6 +26,10 @@
         <activity android:name=".activities.SeansActivity" />
         <activity android:name=".activities.BiletActivity" />
         <activity android:name=".activities.OdemeActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

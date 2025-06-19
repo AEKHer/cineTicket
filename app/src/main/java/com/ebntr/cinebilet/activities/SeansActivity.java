@@ -38,7 +38,7 @@ public class SeansActivity extends AppCompatActivity {
         listSeans.setOnItemClickListener((parent, view, position, id) -> {
             String secilenSeans = seanslar[position];
             Intent intent = new Intent(SeansActivity.this, KoltukSecimActivity.class);
-            intent.putExtra("filmAdi", baslik);  // burayı değiştiriyoruz
+            intent.putExtra("filmAdi", baslik);
             intent.putExtra("seans", secilenSeans);
             startActivity(intent);
         });

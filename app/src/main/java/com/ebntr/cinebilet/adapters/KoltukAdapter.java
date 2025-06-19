@@ -39,12 +39,13 @@ public class KoltukAdapter extends RecyclerView.Adapter<KoltukAdapter.KoltukView
 
         //Koltuğun durumuna göre rengimiz değişiyor
         if (koltuk.rezerveMi()) {
-            koltukGorunumu.setBackgroundColor(0xFFFF0000); // kırmızı
+            koltukGorunumu.setBackgroundResource(R.drawable.koltuk_kirmizi);
         } else if (koltuk.seciliMi()) {
-            koltukGorunumu.setBackgroundColor(0xFF0000FF); // mavi
+            koltukGorunumu.setBackgroundResource(R.drawable.koltuk_mavi);
         } else {
-            koltukGorunumu.setBackgroundColor(0xFF00FF00); // yeşil
+            koltukGorunumu.setBackgroundResource(R.drawable.koltuk_yesil);
         }
+
         //Koltuğa tıklanınca "seçildi" bilgisi gidiyor
         koltukGorunumu.setOnClickListener(v -> {
             koltuk.secimiDegistir();
